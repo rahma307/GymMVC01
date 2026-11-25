@@ -1,0 +1,60 @@
+﻿@using GymSessionDemo1.Entities
+
+@model IEnumerable<Plan>
+@{
+
+    string pagetitle="RouteAcademy";
+    int age=25;
+    List<int> numbers = [1, 2, 3];
+
+}
+
+
+<!DocType html>
+
+
+<html>
+
+<head>
+    <tittle> @pagetitle </tittle>
+
+      
+</head>>
+
+<body>
+    <h1>welome to route academy</h1>
+    <h2>@pagetitle</h2>
+    <p>Age:@age years</p>
+    <p>@age +1</p>
+    <p>(@age +1)</p>
+
+    @if (age >= 18)
+        {
+           <p>You are adult</p>
+        }
+        else{
+             <p>You are under 18</p>
+        }
+ <ul>
+            @foreach(int n in numbers)
+            {
+                <li>Number : @n</li>
+            }
+
+ </ul>
+ @* <a href="/Home/Index"></a> *@
+ <a asp-controller="Home" asp-action="Index"></a>
+ <a asp-controller="Products" asp-action="Delete" asp-route-id="5"></a>
+ <environment include="Development">
+
+     <p> Running in Development</p>
+
+ </environment>
+
+    <environment exclude="Development">
+
+        <p> Running in Production</p>
+
+    </environment>
+    </body>
+ </html>
